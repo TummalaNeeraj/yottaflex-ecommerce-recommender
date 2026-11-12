@@ -1,0 +1,4 @@
+{"details": "Order timestamp is earlier than its originating session.", "expected_decision": "flag_temporal_anomaly", "issue_id": "ISSUE-00001", "issue_type": "purchase_before_session_view", "record_id": "ORD-2026-000001", "table_name": "orders"}
+{"details": "Required product category is blank.", "expected_decision": "flag_missing_required_fk", "issue_id": "ISSUE-00002", "issue_type": "product_category_missing", "record_id": "SKU-000001", "table_name": "products"}
+{"details": "Post-cutoff session was deliberately labelled train.", "expected_decision": "exclude_from_training", "issue_id": "ISSUE-00003", "issue_type": "test_event_in_training", "record_id": "SES-2026-000004", "table_name": "sessions"}
+{"details": "Recommendation deliberately references a discontinued product.", "expected_decision": "remove_recommendation", "issue_id": "ISSUE-00004", "issue_type": "recommendation_discontinued_product", "record_id": "REC-000000001", "table_name": "recommendations"}

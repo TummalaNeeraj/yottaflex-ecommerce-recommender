@@ -1,0 +1,12 @@
+{"category_id": "CAT-0001", "category_name": "Electronics", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "0", "lifecycle_state": "active", "parent_category_id": ""}
+{"category_id": "CAT-0002", "category_name": "Home", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "0", "lifecycle_state": "active", "parent_category_id": ""}
+{"category_id": "CAT-0003", "category_name": "Fashion", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "0", "lifecycle_state": "active", "parent_category_id": ""}
+{"category_id": "CAT-0004", "category_name": "Sports", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "0", "lifecycle_state": "active", "parent_category_id": ""}
+{"category_id": "CAT-0005", "category_name": "Mobiles", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "true", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0001"}
+{"category_id": "CAT-0006", "category_name": "Computers", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0002"}
+{"category_id": "CAT-0007", "category_name": "Kitchen", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0003"}
+{"category_id": "CAT-0008", "category_name": "Furniture", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0004"}
+{"category_id": "CAT-0009", "category_name": "Men", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0001"}
+{"category_id": "CAT-0010", "category_name": "Women", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "true", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0002"}
+{"category_id": "CAT-0011", "category_name": "Fitness", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0003"}
+{"category_id": "CAT-0012", "category_name": "Outdoor", "effective_from": "2026-01-01", "effective_to": "", "is_seasonal": "false", "level": "1", "lifecycle_state": "active", "parent_category_id": "CAT-0004"}

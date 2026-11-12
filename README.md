@@ -12,7 +12,7 @@ A verified starter CSV output is committed under `data/sample/`. Its validation 
 
 - Python 3.10+ standard library for a portable first version
 - `uv` for environment and command management
-- Pytest for automated tests
+- Python unittest for automated tests
 - CSV, JSONL and SQL output formats
 
 No API key, external AI API, database server or internet connection is required.
