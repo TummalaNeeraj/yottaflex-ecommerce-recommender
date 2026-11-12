@@ -20,7 +20,7 @@ No API key, external AI API, database server or internet connection is required.
 ## Quick start (Windows PowerShell)
 
 ```powershell
-git clone <YOUR_PUBLIC_REPOSITORY_URL>
+git clone https://github.com/TummalaNeeraj/yottaflex-ecommerce-recommender.git
 cd yottaflex-ecommerce-recommender
 uv venv
 .venv\Scripts\activate
