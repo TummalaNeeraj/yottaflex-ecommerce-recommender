@@ -1,0 +1,15 @@
+{
+  "seed": 20261022,
+  "year": 2026,
+  "start_date": "2026-01-01T00:00:00",
+  "end_date": "2026-10-31T23:59:59",
+  "customers": 500,
+  "products": 300,
+  "categories": 12,
+  "sessions": 2000,
+  "orders": 400,
+  "recommendations_per_customer": 5,
+  "anomalies_per_type": 1,
+  "output_formats": ["csv", "jsonl", "sql"]
+}
+

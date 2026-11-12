@@ -1,0 +1,88 @@
+entity,field,type,required,allowed_values_or_units,unique,validation_rule
+Category,category_id,string,yes,CAT-####,yes,immutable primary key
+Category,category_name,string,yes,1-120 characters,no,non-empty
+Category,parent_category_id,string,no,CAT-####,no,must reference Category when present
+Category,level,integer,yes,0 or 1,no,root=0 and child=1
+Category,is_seasonal,boolean,yes,true or false,no,valid boolean
+Category,effective_from,date,yes,ISO-8601,no,must be <= effective_to when present
+Category,effective_to,date,no,ISO-8601,no,must be >= effective_from
+Category,lifecycle_state,string,yes,active or inactive,no,allowed enum
+Customer,customer_id,string,yes,CUS-######,yes,immutable primary key
+Customer,created_at,timestamp,yes,ISO-8601 UTC,no,must precede generated activity
+Customer,region,string,yes,north south east west central,no,allowed enum
+Customer,segment,string,yes,regular sparse high_value,no,allowed enum
+Customer,marketing_opt_in,boolean,yes,true or false,no,valid boolean
+Customer,lifecycle_state,string,yes,active or inactive,no,allowed enum
+Product,product_id,string,yes,SKU-######,yes,immutable primary key
+Product,product_name,string,yes,1-160 characters,no,non-empty
+Product,category_id,string,yes,CAT-####,no,must reference Category except labelled anomaly
+Product,unit_price,decimal,yes,USD with 2 decimals,no,must be >= 0
+Product,currency,string,yes,USD,no,ISO currency code
+Product,availability_status,string,yes,active unavailable discontinued,no,allowed enum
+Product,stock_quantity,integer,yes,units,no,must be >= 0; zero when unavailable/discontinued
+Product,is_cold_start,boolean,yes,true or false,no,cold-start products have no training interactions
+Product,effective_from,date,yes,ISO-8601,no,must be <= effective_to when present
+Product,effective_to,date,no,ISO-8601,no,required for discontinued products
+Session,session_id,string,yes,SES-2026-######,yes,immutable primary key
+Session,customer_id,string,yes,CUS-######,no,must reference Customer
+Session,started_at,timestamp,yes,ISO-8601 UTC,no,must be <= ended_at
+Session,ended_at,timestamp,yes,ISO-8601 UTC,no,must be >= started_at
+Session,channel,string,yes,web mobile app,no,allowed enum
+Session,is_bot,boolean,yes,true or false,no,valid boolean
+Session,split,string,yes,train or test,no,derived from chronological cutoff
+Session,lifecycle_state,string,yes,completed,no,allowed lifecycle state
+PageView,event_id,string,yes,EVT-<session-id>-###,yes,immutable primary key
+PageView,session_id,string,yes,SES-2026-######,no,must reference Session
+PageView,customer_id,string,yes,CUS-######,no,must reference Customer and match Session
+PageView,product_id,string,yes,SKU-######,no,must reference Product
+PageView,event_type,string,yes,product_view,no,allowed enum
+PageView,event_at,timestamp,yes,ISO-8601 UTC,no,must fall inside Session window
+PageView,dwell_seconds,integer,yes,seconds,no,must be >= 0
+Cart,cart_id,string,yes,CART-2026-######,yes,immutable primary key
+Cart,session_id,string,yes,SES-2026-######,no,must reference Session
+Cart,customer_id,string,yes,CUS-######,no,must reference Customer and match Session
+Cart,created_at,timestamp,yes,ISO-8601 UTC,no,must be >= Session start
+Cart,status,string,yes,active abandoned converted,no,allowed enum
+Cart,converted_order_id,string,no,ORD-2026-######,no,required only when status=converted
+CartLine,cart_line_id,string,yes,<cart-id>-LINE-###,yes,immutable primary key
+CartLine,cart_id,string,yes,CART-2026-######,no,must reference Cart
+CartLine,product_id,string,yes,SKU-######,no,must reference Product
+CartLine,quantity,integer,yes,units,no,must be > 0
+CartLine,unit_price,decimal,yes,USD with 2 decimals,no,must be >= 0
+CartLine,added_at,timestamp,yes,ISO-8601 UTC,no,must be >= Cart creation
+CartLine,lifecycle_state,string,yes,active removed purchased,no,allowed enum
+Order,order_id,string,yes,ORD-2026-######,yes,immutable primary key
+Order,customer_id,string,yes,CUS-######,no,must reference Customer
+Order,session_id,string,yes,SES-2026-######,no,must reference Session
+Order,cart_id,string,yes,CART-2026-######,yes,must reference one converted Cart
+Order,ordered_at,timestamp,yes,ISO-8601 UTC,no,must be >= originating Session except labelled anomaly
+Order,status,string,yes,completed cancelled refunded,no,allowed enum
+Order,subtotal,decimal,yes,USD with 2 decimals,no,must equal sum of OrderLine line_total
+Order,discount_amount,decimal,yes,USD with 2 decimals,no,must be >= 0
+Order,tax_amount,decimal,yes,USD with 2 decimals,no,must be >= 0
+Order,shipping_amount,decimal,yes,USD with 2 decimals,no,must be >= 0
+Order,total_amount,decimal,yes,USD with 2 decimals,no,subtotal-discount+tax+shipping
+Order,currency,string,yes,USD,no,ISO currency code
+OrderLine,order_line_id,string,yes,<order-id>-LINE-###,yes,immutable primary key
+OrderLine,order_id,string,yes,ORD-2026-######,no,must reference Order
+OrderLine,product_id,string,yes,SKU-######,no,must reference Product
+OrderLine,quantity,integer,yes,units,no,must be > 0
+OrderLine,unit_price,decimal,yes,USD with 2 decimals,no,must be >= 0
+OrderLine,line_total,decimal,yes,USD with 2 decimals,no,quantity * unit_price
+ProductRelation,relation_id,string,yes,REL-#######,yes,immutable primary key
+ProductRelation,source_product_id,string,yes,SKU-######,no,must reference Product
+ProductRelation,related_product_id,string,yes,SKU-######,no,must reference Product and differ from source
+ProductRelation,relation_type,string,yes,co_purchase same_category,no,allowed enum
+ProductRelation,strength,decimal,yes,0 to 1,no,must be between 0 and 1
+ProductRelation,support_count,integer,yes,orders,no,must be >= 0
+ProductRelation,effective_from,timestamp,yes,ISO-8601 UTC,no,must be <= effective_to when present
+ProductRelation,effective_to,timestamp,no,ISO-8601 UTC,no,must be >= effective_from
+Recommendation,recommendation_id,string,yes,REC-#########,yes,immutable primary key
+Recommendation,customer_id,string,yes,CUS-######,no,must reference Customer
+Recommendation,product_id,string,yes,SKU-######,no,must reference Product
+Recommendation,generated_at,timestamp,yes,ISO-8601 UTC,no,must equal evaluation cutoff
+Recommendation,rank,integer,yes,1 to configured k,no,unique per customer and generation time
+Recommendation,score,decimal,yes,0 to 1,no,must be between 0 and 1
+Recommendation,reason,string,yes,popular preferred_category cold_start_exploration,no,allowed enum
+Recommendation,model_version,string,yes,rules-v1,no,non-empty
+Recommendation,split,string,yes,test,no,allowed enum

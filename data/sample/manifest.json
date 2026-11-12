@@ -1,0 +1,69 @@
+{
+  "seed": 20261022,
+  "config": {
+    "seed": 20261022,
+    "year": 2026,
+    "start_date": "2026-01-01T00:00:00",
+    "end_date": "2026-10-31T23:59:59",
+    "customers": 500,
+    "products": 300,
+    "categories": 12,
+    "sessions": 2000,
+    "orders": 400,
+    "recommendations_per_customer": 5,
+    "anomalies_per_type": 1,
+    "output_formats": [
+      "csv",
+      "jsonl",
+      "sql"
+    ]
+  },
+  "train_test_cutoff": "2026-09-01T04:47:59",
+  "source": "fully synthetic; no external dataset used",
+  "output_formats": [
+    "csv",
+    "jsonl",
+    "sql"
+  ],
+  "row_counts": {
+    "categories": 12,
+    "customers": 500,
+    "products": 300,
+    "sessions": 2000,
+    "page_views": 7732,
+    "carts": 400,
+    "cart_lines": 848,
+    "orders": 400,
+    "order_lines": 848,
+    "product_relations": 842,
+    "recommendations": 2500
+  },
+  "ground_truth_rows": 4,
+  "recommendation_metrics": {
+    "evaluation_cutoff": "2026-09-01T04:47:59",
+    "k": 5,
+    "evaluated_users": 71,
+    "precision_at_k": 0.016901,
+    "recall_at_k": 0.03681,
+    "hit_rate_at_k": 0.084507,
+    "catalog_coverage": 0.297398,
+    "cold_start_recommendation_rate": 1.0,
+    "purchased_item_violations": 0,
+    "unavailable_item_violations": 0,
+    "policy_compliance_rate": 1.0
+  },
+  "checksums_sha256": {
+    "csv/cart_lines.csv": "cbc54a6b29bcac8c8705c13053b10b6cd862808321416a5a7eea5d6994947c2c",
+    "csv/carts.csv": "4e1b525977503dc642fabbb0738a4f0481f65bc39c37d3b80583b812771d7aa7",
+    "csv/categories.csv": "7649a5c954ab179cea6921a19a1736d09672013ff1d79abcab4cbd447dd4ac19",
+    "csv/customers.csv": "47717cbb216a9e17411920bd7aac2cee43663ceea7ee7a90024a39d4b2712052",
+    "csv/order_lines.csv": "fa85d7a027841d9d1236abb7f858207e4eeec0f13259759b2ccdb03f3c5641d0",
+    "csv/orders.csv": "990a1ab56af66bbfaca87a621bc96ca5dc225e495a89b5256278d97046d7d3ee",
+    "csv/page_views.csv": "b5cd331dc69f9ca384266d6b2a615f2c2858ec2f001ee8a0c2e675713d2bb03b",
+    "csv/product_relations.csv": "74d144542c7176e217e1086f685ad05132f3f83be9c57dcc0ddeb114109099ab",
+    "csv/products.csv": "efcad208ac3c01af77a60aba8c47c11c3e0fa784bff803f366d09968ecdf3c2f",
+    "csv/recommendations.csv": "0294d863f08979e4db94c275d0172159cb45766635e1aac72a780677f3a6dd03",
+    "csv/sessions.csv": "68e1e8e3933656af09c8beaa9f76fe993af95255e0cae5faf1a0328d5969dc59",
+    "ground_truth.csv": "678ec67665fdab07538958e9783cff0de2aadf9ef6339ee7cb898336405c25d9"
+  }
+}

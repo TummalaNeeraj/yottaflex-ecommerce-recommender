@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "table_row_counts": {
+    "categories": 12,
+    "customers": 500,
+    "products": 300,
+    "sessions": 2000,
+    "page_views": 7732,
+    "carts": 400,
+    "cart_lines": 848,
+    "orders": 400,
+    "order_lines": 848,
+    "product_relations": 842,
+    "recommendations": 2500
+  },
+  "expected_anomaly_count": 4,
+  "observed_anomaly_count": 4,
+  "unexpected_error_count": 0,
+  "missing_expected_count": 0,
+  "unexpected_errors": [],
+  "missing_expected": []
+}

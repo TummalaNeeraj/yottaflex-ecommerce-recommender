@@ -1,0 +1,43 @@
+{
+  "verified_at": "2026-11-11",
+  "config": "config/full_csv.json",
+  "seed": 20261022,
+  "generation_runtime_seconds": 63.237,
+  "reproducibility_runtime_seconds": 115.237,
+  "row_counts": {
+    "categories": 120,
+    "customers": 20000,
+    "products": 10000,
+    "sessions": 500000,
+    "page_views": 1905782,
+    "carts": 100000,
+    "cart_lines": 209426,
+    "orders": 100000,
+    "order_lines": 209426,
+    "product_relations": 15000,
+    "recommendations": 200000
+  },
+  "ground_truth_rows": 16,
+  "validation_status": "PASS",
+  "unexpected_errors": 0,
+  "missing_expected_anomalies": 0,
+  "reproducibility_status": "PASS",
+  "checksum_mismatches": {},
+  "recommendation_metrics": {
+    "k": 10,
+    "evaluated_users": 12314,
+    "precision_at_k": 0.008283,
+    "recall_at_k": 0.024704,
+    "hit_rate_at_k": 0.078041,
+    "catalog_coverage": 0.192535,
+    "cold_start_recommendation_rate": 0.892,
+    "purchased_item_violations": 0,
+    "unavailable_item_violations": 0,
+    "policy_compliance_rate": 1.0
+  },
+  "notes": [
+    "Full-scale verification used CSV-only export to avoid duplicating large JSONL and SQL artifacts during the verification run.",
+    "The same generator supports CSV, JSONL and SQL via config/full.json.",
+    "All data is synthetic and no external source dataset was used."
+  ]
+}

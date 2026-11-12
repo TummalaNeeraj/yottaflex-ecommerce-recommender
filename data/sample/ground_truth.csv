@@ -1,0 +1,5 @@
+issue_id,table_name,record_id,issue_type,expected_decision,details
+ISSUE-00001,orders,ORD-2026-000001,purchase_before_session_view,flag_temporal_anomaly,Order timestamp is earlier than its originating session.
+ISSUE-00002,products,SKU-000001,product_category_missing,flag_missing_required_fk,Required product category is blank.
+ISSUE-00003,sessions,SES-2026-000004,test_event_in_training,exclude_from_training,Post-cutoff session was deliberately labelled train.
+ISSUE-00004,recommendations,REC-000000001,recommendation_discontinued_product,remove_recommendation,Recommendation deliberately references a discontinued product.

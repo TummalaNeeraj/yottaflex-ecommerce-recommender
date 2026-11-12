@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+data/generated/
+data/repro_run_*/
+data/full_*/
+*.log
+.env
+*.db
+

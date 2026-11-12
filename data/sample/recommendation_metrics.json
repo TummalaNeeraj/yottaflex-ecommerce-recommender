@@ -1,0 +1,13 @@
+{
+  "evaluation_cutoff": "2026-09-01T04:47:59",
+  "k": 5,
+  "evaluated_users": 71,
+  "precision_at_k": 0.016901,
+  "recall_at_k": 0.03681,
+  "hit_rate_at_k": 0.084507,
+  "catalog_coverage": 0.297398,
+  "cold_start_recommendation_rate": 1.0,
+  "purchased_item_violations": 0,
+  "unavailable_item_violations": 0,
+  "policy_compliance_rate": 1.0
+}
